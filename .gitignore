@@ -46,4 +46,4 @@ frontend/.cache/
 frontend/.vite/
 frontend/vite.config.js
 
-backend/config/serviceAccountKey.json
+backend/src/config/serviceAccountKey.json
