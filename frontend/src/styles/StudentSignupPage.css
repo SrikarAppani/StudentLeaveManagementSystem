@@ -1,0 +1,103 @@
+.student-signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    font-family: "Arial", sans-serif;
+  }
+  
+  .student-signup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    text-align: center;
+  }
+  
+  .student-signup-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0d47a1;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .student-signup-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #1976d2;
+    border-radius: 6px;
+    background: #f0f7ff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .student-signup-input:focus {
+    border-color: #0d47a1;
+    outline: none;
+    background: #e3f2fd;
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+  
+  .radio-group label {
+    font-size: 0.95rem;
+    margin: 3px 0;
+  }
+  
+  .student-signup-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background: #1976d2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .student-signup-button:hover {
+    background: #0d47a1;
+    transform: scale(1.03);
+  }
+  
+  .student-signup-message {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: red;
+  }
+  
+  .phone-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 2px solid #1976d2;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f0f7ff;
+    width: fit-content;
+    padding-left: 10px;
+  }
+  
+  .phone-prefix {
+    padding: 0 10px;
+    color: #333;
+    font-weight: bold;
+    border-right: 1px solid #ccc;
+  }

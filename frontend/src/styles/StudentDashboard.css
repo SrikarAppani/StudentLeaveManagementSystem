@@ -1,0 +1,200 @@
+.student-dashboard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    font-family: "Arial", sans-serif;
+}
+
+.student-dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.student-pending-requests,
+.student-past-requests {
+    margin-bottom: 20px;
+}
+
+.student-pending-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.student-pending-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #00796b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.apply-dropdown {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 2px solid #00796b;
+    background-color: #f1f8f9;
+    font-size: 14px;
+    color: #004d40;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.apply-dropdown:hover {
+    background-color: #e0f2f1;
+    transform: scale(1.02);
+}
+
+.student-scrollable-card-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #b2dfdb #e0f7fa;
+}
+
+.student-scrollable-card-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.student-scrollable-card-container::-webkit-scrollbar-thumb {
+    background: #b2dfdb;
+    border-radius: 10px;
+}
+
+.student-request-card {
+    min-width: 260px;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #00796b;
+    border-bottom: 4px solid #00796b;
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.student-request-card:hover {
+    transform: translateY(-3px);
+}
+
+.student-request-card p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #004d40;
+}
+
+.filter-buttons {
+    margin-bottom: 15px;
+}
+
+.student-view-button {
+    margin-top: 10px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: #00796b;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.student-view-button:hover {
+    background: #015d52;
+    transform: scale(1.05);
+}
+
+.filter-buttons button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #b2dfdb;
+    color: #004d40;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.filter-buttons button:hover {
+    background-color: #80cbc4;
+    transform: scale(1.05);
+}
+
+.filter-buttons button.active {
+    background-color: #00796b;
+    color: white;
+}
+
+.student-requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.student-requests-table th,
+.student-requests-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #b2dfdb;
+    font-size: 14px;
+    color: #004d40;
+}
+
+.student-requests-table th {
+    background-color: #e0f2f1;
+    color: #004d40;
+    font-weight: bold;
+}
+
+.student-requests-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.student-no-data {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+.student-logout-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.student-logout-button:hover {
+    background-color: #c0392b;
+}

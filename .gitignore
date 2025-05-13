@@ -45,3 +45,5 @@ frontend/.cache/
 # Vite specific
 frontend/.vite/
 frontend/vite.config.js
+
+backend/config/serviceAccountKey.json

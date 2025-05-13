@@ -1,0 +1,182 @@
+.faculty-dashboard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #957DAD;
+  font-family: "Arial", sans-serif;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6a1b9a;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+section {
+  background: white;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pending-requests h2,
+.past-requests h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #6a1b9a;
+}
+
+/* Updated for horizontal scrolling */
+.scrollable-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.request-card {
+  min-width: 280px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #6a1b9a;
+  border-bottom: 4px solid #6a1b9a;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-3px);
+}
+
+.view-button {
+  margin-top: 10px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #6a1b9a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.view-button:hover {
+  background: #5e1688;
+  transform: scale(1.05);
+}
+
+.search-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  border-color: #004d40;
+  outline: none;
+  background: #e0f2f1;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.requests-table th,
+.requests-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.requests-table th {
+  background-color: #f2e4fa;
+  color: #6a1b9a;
+  font-weight: bold;
+}
+
+.requests-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.no-data {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #6a1b9a;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.loading {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 100px;
+}
+
+.faculty-logout-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.faculty-logout-button:hover {
+  background-color: #c0392b;
+}

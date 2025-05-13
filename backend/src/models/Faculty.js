@@ -5,7 +5,8 @@ const FacultySchema = new mongoose.Schema(
         facultyID: {type: String, required:true, unique: true},
         name: {type: String, required:true},
         password: {type: String, required:true},
-        deviceToken: {type: String, required:false, unique: true},
+        emailID: {type: String, required:true, unique: true},
+        deviceTokens: {type: [String], default: []},
         department: {type: String, required:true}
     }
 );

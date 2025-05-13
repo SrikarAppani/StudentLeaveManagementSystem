@@ -1,14 +1,14 @@
-.student-login-container {
+.faculty-login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    background: linear-gradient(135deg, #e6dcf3, #c3b1e1);
     font-family: "Arial", sans-serif;
 }
 
-.student-login-box {
+.faculty-login-box {
     background: white;
     padding: 25px;
     border-radius: 12px;
@@ -17,43 +17,43 @@
     text-align: center;
 }
 
-.student-login-title {
+.faculty-login-title {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #004d40;
+    color: #6a1b9a; /* matches dashboard title */
     margin-bottom: 1rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.student-login-form {
+.faculty-login-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.student-login-input {
+.faculty-login-input {
     width: 95%;
     padding: 10px;
     font-size: 1rem;
-    border: 2px solid #00796b;
+    border: 2px solid #6a1b9a;
     border-radius: 6px;
-    background: #f1f8f9;
+    background: #f9f9f9;
     transition: all 0.3s ease-in-out;
 }
 
-.student-login-input:focus {
-    border-color: #004d40;
+.faculty-login-input:focus {
+    border-color: #5e1688;
     outline: none;
-    background: #e0f2f1;
+    background: #f3e7fb;
 }
 
-.student-login-button {
+.faculty-login-button {
     width: 100%;
     padding: 12px;
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background: #00796b;
+    background: #6a1b9a;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -61,20 +61,7 @@
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-.student-login-button:hover {
-    background: #004d40;
+.faculty-login-button:hover {
+    background: #5e1688;
     transform: scale(1.05);
-}
-
-.student-forgot-password {
-    background: none;
-    border: none;
-    color: #00796b;
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 1rem;
-}
-
-.student-forgot-password:hover {
-    color: #004d40;
 }

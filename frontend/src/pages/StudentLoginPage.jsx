@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/LoginPage.css'
+import '../styles/StudentLoginPage.css'
 
-const StudentLoginPage = ({ updateRollNumber }) => {
+const StudentLoginPage = () => {
+
+  useEffect(() => {
+    sessionStorage.removeItem("token");
+  }, []);
+
   const [rollNumber, setRollNumber] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -12,13 +17,16 @@ const StudentLoginPage = ({ updateRollNumber }) => {
     try {
       const response = await fetch("http://localhost:5000/api/student/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json" 
+        },
         body: JSON.stringify({ rollNumber, password }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        localStorage.setItem("isAuthenticated", "true");
-        updateRollNumber(rollNumber);
+        sessionStorage.setItem("token", data.token);
         navigate("/home");
       } else {
         alert("Invalid roll number or password.");

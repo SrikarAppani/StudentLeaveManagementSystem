@@ -1,0 +1,85 @@
+.faculty-request-viewing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #957dad;
+  font-family: "Arial", sans-serif;
+}
+
+.faculty-request-viewing-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  text-align: center;
+}
+
+.faculty-request-viewing-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6a1b9a;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.faculty-request-detail {
+  text-align: left;
+  font-size: 1rem;
+  color: #6a1b9a;
+  margin: 8px 0;
+}
+
+.faculty-request-label {
+  font-weight: bold;
+  color: #6a1b9a;
+  white-space: pre;
+}
+
+.faculty-request-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.faculty-request-button,
+.faculty-accept-button,
+.faculty-reject-button,
+.faculty-view-past-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.faculty-request-button:hover,
+.faculty-accept-button:hover,
+.faculty-reject-button:hover,
+.faculty-view-past-button:hover {
+  transform: scale(1.05);
+}
+
+.faculty-request-button {
+  background-color: #9c27b0;
+}
+
+.faculty-accept-button {
+  background-color: #4caf50;
+}
+
+.faculty-reject-button {
+  background-color: #f44336;
+}
+
+.faculty-view-past-button {
+  background-color: #9c27b0;
+}

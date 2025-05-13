@@ -1,0 +1,62 @@
+.role-selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    font-family: "Arial", sans-serif;
+}
+
+.role-selection-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.role-selection-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #880e4f;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.role-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.role-button {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.role-button.teacher {
+    background: #6a1b9a;
+}
+
+.role-button.teacher:hover {
+    background: #4a148c;
+    transform: scale(1.05);
+}
+
+.role-button.student {
+    background: #00796b;
+}
+
+.role-button.student:hover {
+    background: #004d40;
+    transform: scale(1.05);
+}

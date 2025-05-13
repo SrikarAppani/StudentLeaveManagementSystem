@@ -1,0 +1,51 @@
+.faculty-signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+}
+  
+.faculty-signup-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.faculty-signup-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+  
+.faculty-signup-form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.faculty-signup-input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+  
+.faculty-signup-button {
+    padding: 0.75rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+  
+.faculty-signup-button:hover {
+    background-color: #388e3c;
+}
+  
+.faculty-signup-message {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
