@@ -12,6 +12,8 @@ const StudentDashboard = () => {
   const [historyRequests, setHistoryRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,6 +38,10 @@ const StudentDashboard = () => {
     }
     fetchToken();
   }, [rollNumber]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filter]);  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -120,6 +126,11 @@ const StudentDashboard = () => {
 
   if (loading) return <div className="loading">Loading data...</div>;
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredHistory.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredHistory.length / itemsPerPage);
+
   return (
     <div className="student-dashboard">
       <StudentLogoutButton />
@@ -202,14 +213,14 @@ const StudentDashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredHistory.length === 0 ? (
+            {currentItems.length === 0 ? (
               <tr>
                 <td colSpan="6" className="no-data">
                   No past requests found
                 </td>
               </tr>
             ) : (
-              filteredHistory.map((req) => (
+              currentItems.map((req) => (
                 <tr key={req._id} onClick={() => viewDetails(req)}>
                   <td>{req.reason}</td>
                   <td>{req.date ? "Half-Day" : "Full-Day"}</td>
@@ -241,6 +252,23 @@ const StudentDashboard = () => {
             )}
           </tbody>
         </table>
+        <div className="student-pagination">
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
       </section>
     </div>
   );
