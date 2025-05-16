@@ -18,7 +18,16 @@ import StudentRequestViewPage from "./pages/StudentRequestViewPage";
 import StudentDashboard from "./pages/StudentDashboard";
 
 function AppContent() {
-  
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/firebase-messaging-sw.js")
+        .then((registration) => {
+          console.log("Service Worker registered:", registration);
+        });
+    }
+  });
+
   useEffect(() => {
     onMessage(messaging, (payload) => {
       console.log(payload);
@@ -29,27 +38,15 @@ function AppContent() {
     <div>
       <Routes>
         <Route path="/" element={<RoleSelectionPage />} />
-        <Route
-          path="/student"
-          element={<StudentLoginPage/>}
-        />
-        <Route
-          path="/student/sign-up"
-          element={<StudentSignupPage/>}
-        />
-        <Route
-          path="/faculty"
-          element={<FacultyLoginPage/>}
-        />
-        <Route
-          path="/faculty/sign-up"
-          element={<FacultySignupPage/>}
-        />
+        <Route path="/student" element={<StudentLoginPage />} />
+        <Route path="/student/sign-up" element={<StudentSignupPage />} />
+        <Route path="/faculty" element={<FacultyLoginPage />} />
+        <Route path="/faculty/sign-up" element={<FacultySignupPage />} />
         <Route
           path="/student/dashboard"
           element={
             <ProtectedStudentRoute>
-              <StudentDashboard/>
+              <StudentDashboard />
             </ProtectedStudentRoute>
           }
         />
@@ -57,7 +54,7 @@ function AppContent() {
           path="/faculty/dashboard"
           element={
             <ProtectedFacultyRoute>
-              <FacultyDashboard/>
+              <FacultyDashboard />
             </ProtectedFacultyRoute>
           }
         />
@@ -65,7 +62,7 @@ function AppContent() {
           path="/faculty-view-details"
           element={
             <ProtectedFacultyRoute>
-              <FacultyRequestViewPage/>
+              <FacultyRequestViewPage />
             </ProtectedFacultyRoute>
           }
         />
@@ -73,7 +70,7 @@ function AppContent() {
           path="/student-view-details"
           element={
             <ProtectedFacultyRoute>
-              <StudentRequestViewPage/>
+              <StudentRequestViewPage />
             </ProtectedFacultyRoute>
           }
         />
@@ -81,7 +78,7 @@ function AppContent() {
           path="/half-day-leave"
           element={
             <ProtectedStudentRoute>
-              <HalfDayLeaveForm/>
+              <HalfDayLeaveForm />
             </ProtectedStudentRoute>
           }
         />
@@ -89,7 +86,7 @@ function AppContent() {
           path="/full-day-leave"
           element={
             <ProtectedStudentRoute>
-              <FullDayLeaveForm/>
+              <FullDayLeaveForm />
             </ProtectedStudentRoute>
           }
         />

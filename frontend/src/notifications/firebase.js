@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
 
 const firebaseConfig ={
-  apiKey: `${import.meta.env.VITE_FCM_API_KEY}`,
+  apiKey: "AIzaSyBHURttMZmcpughDt3OEfKcG6jrvVwbAKs",
   authDomain: "student-leave-management.firebaseapp.com",
   projectId: "student-leave-management",
   storageBucket: "student-leave-management.firebasestorage.app",
-  messagingSenderId: `${import.meta.env.VITE_FCM_MESSAGING_SENDER_ID}`,
-  appId: `${import.meta.env.VITE_FCM_APP_ID}`,
-  measurementId: `${import.meta.env.VITE_FCM_MEASUREMENT_ID}`
+  messagingSenderId: "468252728992",
+  appId: "1:468252728992:web:fc14258e26351f21a173c5",
+  measurementId: "G-WBC97V6B6E"
 };
 
 const app = initializeApp(firebaseConfig);
