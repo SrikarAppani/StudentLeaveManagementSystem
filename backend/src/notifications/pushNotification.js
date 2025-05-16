@@ -22,10 +22,18 @@ const sendPushNotification = async (token, title, body, url) => {
   try {
     await admin.messaging().send(message);
     console.log("Push notification sent successfully!");
-    return true;
+    return { success: true };
   } catch (error) {
-    console.error("Error sending push notification:", error);
-    return false;
+    console.error("Error sending push notification:", error.message || error);
+
+    if (
+      error.code === "messaging/invalid-registration-token" ||
+      error.code === "messaging/registration-token-not-registered"
+    ) {
+      return { success: false, reason: "invalid-token" };
+    }
+
+    return { success: false, reason: "unknown-error", error: error.message || error };
   }
 };
 

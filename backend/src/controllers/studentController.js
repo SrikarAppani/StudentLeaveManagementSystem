@@ -219,11 +219,12 @@ const applyhalfdayleave = async (req, res) => {
       sendNotification(
         placementFacultyTokens,
         student.name,
-        placementFaculty.emailID
+        placementFaculty.emailID,
+        placementFacultyID
       );
     }
 
-    sendNotification(tokens, student.name, teacher.emailID);
+    sendNotification(tokens, student.name, teacher.emailID, teacherID);
 
     res.status(200).json({ message: "Notification attempt completed." });
   } catch (err) {
@@ -293,11 +294,12 @@ const applyfulldayleave = async (req, res) => {
       sendNotification(
         placementFacultyTokens,
         student.name,
-        placementFaculty.emailID
+        placementFaculty.emailID,
+        placementFacultyID
       );
     }
 
-    sendNotification(tokens, student.name, faculty.emailID);
+    sendNotification(tokens, student.name, faculty.emailID, hodID);
 
     res.status(200).json({ message: "Notification attempt completed." });
   } catch (err) {
@@ -306,19 +308,25 @@ const applyfulldayleave = async (req, res) => {
   }
 };
 
-const sendNotification = async (tokens, studentName, emailID) => {
-  let sent = false;
+const sendNotification = async (tokens, studentName, emailID, facultyID) => {
+  let anySent = false;
 
   for (let token of tokens) {
-    sent = await sendPushNotification(
+    const result = await sendPushNotification(
       token,
       `Leave request from ${studentName}`,
       "Click to view",
       "http://localhost:5713/faculty-login"
     );
+
+    if (result.success) {
+      anySent = true;
+    } else if (result.reason === "invalid-token") {
+      await deleteToken(facultyID, token);
+    }
   }
 
-  if (!sent && emailID) {
+  if (!anySent && emailID) {
     await sendEmailNotification(
       emailID,
       `Leave Request from ${studentName}`,
@@ -339,6 +347,23 @@ const sendNotification = async (tokens, studentName, emailID) => {
       </a>
       `
     );
+  }
+};
+
+const deleteToken = async (facultyID, tokenToDelete) => {
+  try {
+    const result = await Faculty.updateOne(
+      { facultyID: facultyID },
+      { $pull: { deviceTokens: tokenToDelete } }
+    );
+
+    if (result.modifiedCount > 0) {
+      console.log(`Token removed for faculty ${facultyID}`);
+    } else {
+      console.log(`Token not found or already removed for faculty ${facultyID}`);
+    }
+  } catch (error) {
+    console.error(`Error deleting token for faculty ${facultyID}:`, error.message || error);
   }
 };
 

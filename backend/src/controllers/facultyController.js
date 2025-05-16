@@ -277,21 +277,28 @@ const sendNotification = async (request) => {
   const studentRollNumber = request.studentRollNumber;
   const student = await Student.findOne(
     { rollNumber: studentRollNumber },
-    { name:1, emailID: 1, deviceTokens: 1, _id: 0 }
+    { name: 1, emailID: 1, deviceTokens: 1, _id: 0 }
   );
-  const tokens = student.deviceTokens;
-  let sent = false;
+
+  const tokens = student.deviceTokens || [];
+  let anySent = false;
 
   for (let token of tokens) {
-    sent = await sendPushNotification(
+    const result = await sendPushNotification(
       token,
       `Leave Request ${request.status}`,
       "Click to view",
       "http://localhost:5713/student-login"
     );
+
+    if (result.success) {
+      anySent = true;
+    } else if (result.reason === "invalid-token") {
+      await deleteToken(studentRollNumber, token);
+    }
   }
 
-  if (!sent && student.emailID) {
+  if (!anySent && student.emailID) {
     await sendEmailNotification(
       student.emailID,
       `Leave Request ${request.status}`,
@@ -314,6 +321,23 @@ const sendNotification = async (request) => {
         </a>
       `
     );
+  }
+};
+
+const deleteToken = async (rollNumber, tokenToDelete) => {
+  try {
+    const result = await Student.updateOne(
+      { rollNumber: rollNumber },
+      { $pull: { deviceTokens: tokenToDelete } }
+    );
+
+    if (result.modifiedCount > 0) {
+      console.log(`Successfully removed token for student ${rollNumber}`);
+    } else {
+      console.log(`No token removed for student ${rollNumber} — token may not exist`);
+    }
+  } catch (error) {
+    console.error(`Error removing token for student ${rollNumber}:`, error);
   }
 };
 
