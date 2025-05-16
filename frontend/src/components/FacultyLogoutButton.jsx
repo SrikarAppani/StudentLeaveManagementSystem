@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/FacultyDashboard.css"; // Ensure this line is present
+import "../styles/FacultyDashboard.css";
 
 const FacultyLogoutButton = () => {
   const navigate = useNavigate();

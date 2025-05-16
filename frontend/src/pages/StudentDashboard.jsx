@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { generateToken } from "../notifications/firebase";
 import { getUserFromToken } from "../utils/getUserFromToken";
@@ -27,7 +27,7 @@ const StudentDashboard = () => {
     async function fetchToken() {
       if (!rollNumber) return;
       const deviceToken = await generateToken();
-      fetch("http://localhost:5000/api/student/update-token", {
+      fetch(`${import.meta.env.VITE_BACKEND_SERVER}/api/student/update-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const StudentDashboard = () => {
       if (!rollNumber) return;
       try {
         const pendingRes = await fetch(
-          `http://localhost:5000/api/student/pending?rollNumber=${rollNumber}`,
+          `${import.meta.env.VITE_BACKEND_SERVER}/api/student/pending?rollNumber=${rollNumber}`,
           {
             method: "GET",
             headers: {
@@ -58,7 +58,7 @@ const StudentDashboard = () => {
           }
         );
         const historyRes = await fetch(
-          `http://localhost:5000/api/student/history?rollNumber=${rollNumber}`,
+          `${import.meta.env.VITE_BACKEND_SERVER}/api/student/history?rollNumber=${rollNumber}`,
           {
             method: "GET",
             headers: {
@@ -97,7 +97,7 @@ const StudentDashboard = () => {
 
   const getGatePassUrl = async (requestID) => {
     try {
-      const urlResponse = await fetch(`http://localhost:5000/api/student/gate-pass-url?rollNumber=${rollNumber}&requestID=${requestID}`,
+      const urlResponse = await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/api/student/gate-pass-url?rollNumber=${rollNumber}&requestID=${requestID}`,
         {
           method: "GET",
           headers: {

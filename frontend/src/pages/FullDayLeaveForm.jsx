@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserFromToken } from "../utils/getUserFromToken";
 import '../styles/LeaveForm.css';
@@ -56,7 +56,7 @@ const FullDayLeaveForm = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/student/full-day-leave", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/api/student/full-day-leave`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const FullDayLeaveForm = () => {
       } else {
         alert("Form submitted successfully!");
         console.log("Form successfully submitted:", await response.json());
-        navigate("/home");
+        navigate("/student/dashboard");
       }
 
     } catch (error) {

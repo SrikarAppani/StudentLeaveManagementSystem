@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/StudentSignupPage.css";
 
@@ -37,7 +37,7 @@ const StudentSignupPage = () => {
     console.log(formData);
     try {
       const response = await fetch(
-        "http://localhost:5000/api/student/sign-up",
+        `${import.meta.env.VITE_BACKEND_SERVER}/api/student/sign-up`,
         {
           method: "POST",
           headers: {
@@ -51,7 +51,7 @@ const StudentSignupPage = () => {
 
       if (response.ok) {
         sessionStorage.setItem("token", data.token);
-        navigate("/home");
+        navigate("/student/dashboard");
       } else {
         setMessage(data.message || "Signup failed");
       }

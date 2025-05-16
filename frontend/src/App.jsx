@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { messaging } from "./notifications/firebase";
 import { onMessage } from "firebase/messaging";
@@ -46,7 +46,7 @@ function AppContent() {
           element={<FacultySignupPage/>}
         />
         <Route
-          path="/home"
+          path="/student/dashboard"
           element={
             <ProtectedStudentRoute>
               <StudentDashboard/>

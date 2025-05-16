@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { generateToken } from "../notifications/firebase";
 import { getUserFromToken } from "../utils/getUserFromToken";
@@ -29,7 +29,7 @@ const FacultyDashboard = () => {
       try {
         setLoading(true);
         const pendingResponse = await fetch(
-          `http://localhost:5000/api/faculty/pending?facultyID=${facultyID}`,
+          `${import.meta.env.VITE_BACKEND_SERVER}/api/faculty/pending?facultyID=${facultyID}`,
           {
             method: "GET",
             headers: {
@@ -42,7 +42,7 @@ const FacultyDashboard = () => {
         setPendingRequests(pendingData);
 
         const historyResponse = await fetch(
-          `http://localhost:5000/api/faculty/history?facultyID=${facultyID}`,
+          `${import.meta.env.VITE_BACKEND_SERVER}/api/faculty/history?facultyID=${facultyID}`,
           {
             method: "GET",
             headers: {
@@ -70,7 +70,7 @@ const FacultyDashboard = () => {
     async function fetchToken() {
       if(!facultyID) return;
       const deviceToken = await generateToken();
-      fetch("http://localhost:5000/api/faculty/update-token", {
+      fetch(`${import.meta.env.VITE_BACKEND_SERVER}/api/faculty/update-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

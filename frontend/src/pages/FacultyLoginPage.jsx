@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/FacultyLoginPage.css";
 
@@ -20,7 +20,7 @@ const FacultyLoginPage = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/faculty/login", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/api/faculty/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

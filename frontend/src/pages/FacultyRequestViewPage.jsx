@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/FacultyRequestViewPage.css";
 import { getUserFromToken } from "../utils/getUserFromToken";
@@ -28,7 +28,7 @@ const FacultyRequestViewPage = () => {
   const handleAction = async (action) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/faculty/handle-approval?requestId=${request._id}`,
+        `${import.meta.env.VITE_BACKEND_SERVER}/api/faculty/handle-approval?requestId=${request._id}`,
         {
           method: "POST",
           headers: {
@@ -59,7 +59,7 @@ const FacultyRequestViewPage = () => {
     console.log(rollNumber);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/faculty/view-student-past-requests?rollNumber=${rollNumber}`,
+        `${import.meta.env.VITE_BACKEND_SERVER}/api/faculty/view-student-past-requests?rollNumber=${rollNumber}`,
         {
           method: "GET",
           headers: {

@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
 
 const firebaseConfig ={
-  apiKey: "AIzaSyBHURttMZmcpughDt3OEfKcG6jrvVwbAKs",
+  apiKey: `${import.meta.env.VITE_FCM_API_KEY}`,
   authDomain: "student-leave-management.firebaseapp.com",
   projectId: "student-leave-management",
   storageBucket: "student-leave-management.firebasestorage.app",
-  messagingSenderId: "468252728992",
-  appId: "1:468252728992:web:fc14258e26351f21a173c5",
-  measurementId: "G-WBC97V6B6E"
+  messagingSenderId: `${import.meta.env.VITE_FCM_MESSAGING_SENDER_ID}`,
+  appId: `${import.meta.env.VITE_FCM_APP_ID}`,
+  measurementId: `${import.meta.env.VITE_FCM_MEASUREMENT_ID}`
 };
 
 const app = initializeApp(firebaseConfig);
@@ -19,7 +19,7 @@ const generateToken = async () => {
   console.log(permission);
   if(permission === 'granted') {
     try {
-      const token = await getToken(messaging, {vapidKey: "BHjFieWeFaiSS2Q4T-zmHU-000TdW4AVkY-lKEEC6QU-YhphYnOLe3QLOPTgkD51EcBdkAuAA9EwBU2ALMF6k3M"});
+      const token = await getToken(messaging, {vapidKey: `${import.meta.env.VITE_FCM_VAPID_KEY}`});
       console.log(token);
       return token;
     } catch (err) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/StudentLoginPage.css'
 
@@ -15,7 +15,7 @@ const StudentLoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/student/login", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_SERVER}/api/student/login`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json" 
@@ -27,7 +27,7 @@ const StudentLoginPage = () => {
 
       if (response.ok) {
         sessionStorage.setItem("token", data.token);
-        navigate("/home");
+        navigate("/student/dashboard");
       } else {
         alert("Invalid roll number or password.");
       }

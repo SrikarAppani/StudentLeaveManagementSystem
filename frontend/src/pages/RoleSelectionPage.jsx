@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/RoleSelectionPage.css';
 
@@ -11,7 +10,7 @@ const RoleSelectionPage = () => {
         <h1 className="role-selection-title">Select Your Role</h1>
         <div className="role-buttons">
           <button onClick={() => navigate("/faculty")} className="role-button teacher">
-            Teacher
+            Faculty
           </button>
           <button onClick={() => navigate("/student")} className="role-button student">
             Student
