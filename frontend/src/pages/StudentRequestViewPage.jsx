@@ -1,4 +1,5 @@
 import '../styles/StudentRequestViewPage.css';
+import React from "react";
 import LeaveProgressBar from '../components/LeaveProgressBar';
 import StudentLogoutButton from "../components/StudentLogoutButton"
 import { useLocation } from 'react-router-dom';

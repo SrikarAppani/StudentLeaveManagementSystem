@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/PastRequestsModal.css";
 
 const PastRequestsModal = ({ pastRequests, onClose }) => {

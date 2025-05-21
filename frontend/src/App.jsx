@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { messaging } from "./notifications/firebase";
 import { onMessage } from "firebase/messaging";

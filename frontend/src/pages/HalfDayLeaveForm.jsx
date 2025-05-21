@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/LeaveForm.css';
 import { getUserFromToken } from "../utils/getUserFromToken";
 import { useNavigate } from "react-router-dom";
