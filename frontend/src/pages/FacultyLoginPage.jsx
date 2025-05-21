@@ -69,6 +69,7 @@ const FacultyLoginPage = () => {
             Login
           </button>
         </form>
+        <p>Don't have an account?{" "}<button onClick={()=>navigate("/faculty/sign-up")} style={{ background: "none", border: "none", color: "blue", cursor: "pointer" }}>Sign-Up</button></p>
         {message && <p className="faculty-login-message">{message}</p>}
       </div>
     </div>

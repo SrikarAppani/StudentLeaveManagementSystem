@@ -59,6 +59,7 @@ const StudentLoginPage = () => {
           />
           <button type="submit" className="student-login-button">Login</button>
         </form>
+        <p>Don't have an account?{" "}<button onClick={()=>navigate("/student/sign-up")} style={{ background: "none", border: "none", color: "blue", cursor: "pointer" }}>Sign-Up</button></p>
       </div>
     </div>
   );
