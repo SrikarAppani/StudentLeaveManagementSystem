@@ -1,3 +1,11 @@
+/* Reset box sizing for consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Full Viewport Container */
 .student-login-container {
     display: flex;
     justify-content: center;
@@ -6,34 +14,40 @@
     width: 100vw;
     background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
     font-family: "Arial", sans-serif;
+    padding: 20px;
 }
 
+/* Login Box */
 .student-login-box {
     background: white;
-    padding: 25px;
+    padding: 5vw;
     border-radius: 12px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
+/* Title */
 .student-login-title {
-    font-size: 1.8rem;
+    font-size: 2.3vw;
     font-weight: bold;
     color: #004d40;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Form Layout */
 .student-login-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1.2rem;
 }
 
+/* Inputs */
 .student-login-input {
-    width: 95%;
-    padding: 10px;
+    width: 100%;
+    padding: 0.8rem;
     font-size: 1rem;
     border: 2px solid #00796b;
     border-radius: 6px;
@@ -47,10 +61,11 @@
     background: #e0f2f1;
 }
 
+/* Button */
 .student-login-button {
     width: 100%;
-    padding: 12px;
-    font-size: 1.2rem;
+    padding: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: white;
     background: #00796b;
@@ -64,4 +79,32 @@
 .student-login-button:hover {
     background: #004d40;
     transform: scale(1.05);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 600px) {
+    .student-login-box {
+        padding: 20px;
+    }
+
+    .student-login-title {
+        font-size: 1.8rem;
+    }
+
+    .student-login-input,
+    .student-login-button {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 1200px) {
+    .student-login-title {
+        font-size: 2.4rem;
+    }
+
+    .student-login-button {
+        font-size: 1.2rem;
+        padding: 1.2rem;
+    }
 }

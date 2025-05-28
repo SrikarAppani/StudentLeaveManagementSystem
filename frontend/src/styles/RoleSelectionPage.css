@@ -1,3 +1,11 @@
+/* Global reset for box sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Full Viewport Container */
 .role-selection-container {
     display: flex;
     justify-content: center;
@@ -6,33 +14,39 @@
     width: 100vw;
     background: linear-gradient(135deg, #fce4ec, #f8bbd0);
     font-family: "Arial", sans-serif;
+    padding: 20px;
 }
 
+/* Central Box */
 .role-selection-box {
     background: white;
-    padding: 30px;
+    padding: 5vw;
     border-radius: 12px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    width: 100%;
+    max-width: 450px;
     text-align: center;
 }
 
+/* Title */
 .role-selection-title {
-    font-size: 2rem;
+    font-size: 2.5vw;
     font-weight: bold;
     color: #880e4f;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Button Container */
 .role-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
+/* Buttons */
 .role-button {
-    padding: 12px;
+    padding: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
@@ -41,22 +55,51 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
+/* Teacher Button */
 .role-button.teacher {
     background: #6a1b9a;
 }
-
 .role-button.teacher:hover {
     background: #4a148c;
     transform: scale(1.05);
 }
 
+/* Student Button */
 .role-button.student {
     background: #00796b;
 }
-
 .role-button.student:hover {
     background: #004d40;
     transform: scale(1.05);
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 600px) {
+    .role-selection-box {
+        padding: 20px;
+    }
+
+    .role-selection-title {
+        font-size: 1.8rem;
+    }
+
+    .role-button {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Large Screen Enhancements */
+@media (min-width: 1200px) {
+    .role-selection-title {
+        font-size: 2.5rem;
+    }
+
+    .role-button {
+        font-size: 1.3rem;
+        padding: 1.2rem;
+    }
 }

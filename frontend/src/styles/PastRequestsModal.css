@@ -31,6 +31,10 @@
     text-align: center;
 }
 
+.past-requests-table-container {
+    overflow-x: auto;
+}
+
 .past-requests-table {
     width: 100%;
     border-collapse: collapse;

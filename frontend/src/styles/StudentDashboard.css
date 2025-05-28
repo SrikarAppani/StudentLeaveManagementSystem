@@ -3,10 +3,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100vw;
     min-height: 100vh;
+    width: 100vw;
     background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
     font-family: "Arial", sans-serif;
+    padding: 20px;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+.student-logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.faculty-logout-button:hover {
+  background-color: #c0392b;
 }
 
 .student-dashboard-title {
@@ -14,11 +37,15 @@
     font-weight: bold;
     color: #00796b;
     margin-bottom: 20px;
+    text-align: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 .student-pending-requests,
 .student-past-requests {
+    width: 100%;
+    max-width: 1200px;
     margin-bottom: 20px;
 }
 
@@ -26,6 +53,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 10px;
 }
 
@@ -95,6 +124,10 @@
 
 .filter-buttons {
     margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 .student-view-button {
@@ -116,7 +149,6 @@
 }
 
 .filter-buttons button {
-    margin-right: 10px;
     padding: 8px 16px;
     border: none;
     border-radius: 6px;
@@ -137,14 +169,24 @@
     color: white;
 }
 
+.student-requests-table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    background: white;
+}
+
 .student-requests-table {
     width: 100%;
+    min-width: 600px; /* Ensures table gets scrollable on small screens */
     border-collapse: collapse;
-    margin-top: 10px;
-    background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    word-wrap: normal;
+    table-layout: auto;
 }
 
 .student-requests-table th,
@@ -154,6 +196,7 @@
     border-bottom: 1px solid #b2dfdb;
     font-size: 14px;
     color: #004d40;
+    white-space: nowrap; /* Prevent word from breaking into new lines */
 }
 
 .student-requests-table th {
@@ -165,6 +208,7 @@
 .student-requests-table tr:hover {
     background-color: #f9f9f9;
 }
+
 
 .student-no-data {
     text-align: center;
@@ -179,33 +223,13 @@
     color: #666;
 }
 
-.student-logout-button {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.student-logout-button:hover {
-    background-color: #c0392b;
-}
-
 .student-pagination {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .student-pagination button {
@@ -222,4 +246,38 @@
 .student-pagination button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+    .student-dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .student-request-card {
+        min-width: 90vw;
+    }
+
+    .student-pending-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .student-logout-button {
+        top: 10px;
+        right: 15px;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .student-requests-table th,
+    .student-requests-table td {
+        font-size: 12px;
+        padding: 10px;
+    }
+    
+    .student-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }

@@ -3,17 +3,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100vw;
   min-height: 100vh;
+  width: 100vw;
   background: #957DAD;
   font-family: "Arial", sans-serif;
+  padding: 20px;
+  padding-top: 60px;
+  box-sizing: border-box;
+}
+
+.faculty-logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.faculty-logout-button:hover {
+  background-color: #c0392b;
 }
 
 .dashboard-title {
+  text-align: center;
   font-size: 2rem;
   font-weight: bold;
   color: #6a1b9a;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -25,6 +49,8 @@ section {
   width: 100%;
   max-width: 1000px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  overflow-x: auto;
 }
 
 .pending-requests h2,
@@ -34,7 +60,7 @@ section {
   color: #6a1b9a;
 }
 
-/* Updated for horizontal scrolling */
+/* Horizontal scrolling for request cards */
 .scrollable-card-container {
   display: flex;
   flex-direction: row;
@@ -56,6 +82,7 @@ section {
   border-bottom: 4px solid #6a1b9a;
   text-align: left;
   transition: transform 0.2s ease;
+  box-sizing: border-box;
 }
 
 .request-card:hover {
@@ -89,6 +116,7 @@ section {
   margin-bottom: 20px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .search-input:focus {
@@ -97,14 +125,22 @@ section {
   background: #e0f2f1;
 }
 
+/* Scrollable Table Wrapper */
+.table-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* Styled Table */
 .requests-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
   background: #fff;
   border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  min-width: 600px; /* Ensures scroll on smaller screens */
 }
 
 .requests-table th,
@@ -112,6 +148,7 @@ section {
   padding: 12px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  white-space: nowrap;
 }
 
 .requests-table th {
@@ -128,6 +165,7 @@ section {
   text-align: center;
   color: gray;
   font-style: italic;
+  padding: 10px;
 }
 
 .pagination {
@@ -161,22 +199,30 @@ section {
   margin-top: 100px;
 }
 
-.faculty-logout-button {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 10;
-  transition: background-color 0.3s ease;
-}
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
 
-.faculty-logout-button:hover {
-  background-color: #c0392b;
+  .request-card {
+    min-width: 240px;
+  }
+
+  .view-button {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .faculty-logout-button {
+    top: 10px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
 }

@@ -2,19 +2,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
     font-family: "Arial", sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .leave-form-box {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .leave-form-title {
@@ -41,13 +45,14 @@
 .leave-form-group input,
 .leave-form-group select,
 .leave-form-group textarea {
-    width: 95%;
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: 2px solid #00796b;
     border-radius: 6px;
     background: #f1f8f9;
     transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
 .leave-form-group input:focus,
@@ -75,4 +80,28 @@
 .leave-submit-button:hover {
     background: #004d40;
     transform: scale(1.05);
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 600px) {
+    .leave-form-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .leave-form-title {
+        font-size: 1.5rem;
+    }
+
+    .leave-form-group input,
+    .leave-form-group select,
+    .leave-form-group textarea {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    .leave-submit-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
 }

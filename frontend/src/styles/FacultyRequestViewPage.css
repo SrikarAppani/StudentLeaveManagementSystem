@@ -2,10 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: #957dad;
   font-family: "Arial", sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .faculty-request-viewing-box {
@@ -13,8 +15,10 @@
   padding: 25px;
   border-radius: 12px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-  width: 400px;
+  width: 100%;
+  max-width: 450px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .faculty-request-viewing-title {
@@ -82,4 +86,28 @@
 
 .faculty-view-past-button {
   background-color: #9c27b0;
+}
+
+/* Responsive design tweaks for smaller screens */
+@media (max-width: 600px) {
+  .faculty-request-viewing-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .faculty-request-viewing-title {
+    font-size: 1.5rem;
+  }
+
+  .faculty-request-detail {
+    font-size: 0.95rem;
+  }
+
+  .faculty-request-button,
+  .faculty-accept-button,
+  .faculty-reject-button,
+  .faculty-view-past-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
 }
