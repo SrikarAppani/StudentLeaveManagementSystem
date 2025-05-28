@@ -133,8 +133,8 @@ const StudentDashboard = () => {
 
   return (
     <div className="student-dashboard">
-      <StudentLogoutButton />
       <h1 className="student-dashboard-title">Student Leave Dashboard</h1>
+      <StudentLogoutButton />
 
       <section className="student-pending-requests">
         <div className="student-pending-header">
@@ -201,13 +201,14 @@ const StudentDashboard = () => {
           </button>
         </div>
 
+      <div className="student-requests-table-container">
         <table className="student-requests-table">
           <thead>
             <tr>
               <th>Reason</th>
-              <th>Type</th>
+              {filter === "all" && <th>Type</th>}
               <th>Date</th>
-              <th>No. of Days</th>
+              {filter !== "half" && <th>No. of Days</th>}
               <th>Status</th>
               <th>Gate Pass</th>
             </tr>
@@ -223,13 +224,13 @@ const StudentDashboard = () => {
               currentItems.map((req) => (
                 <tr key={req._id} onClick={() => viewDetails(req)}>
                   <td>{req.reason}</td>
-                  <td>{req.date ? "Half-Day" : "Full-Day"}</td>
+                  {filter === "all" && <td>{req.date ? "Half-Day" : "Full-Day"}</td>}
                   <td>
                     {req.date
                       ? new Date(req.date).toLocaleDateString("en-GB")
                       : new Date(req.fromDate).toLocaleDateString("en-GB")}
                   </td>
-                  <td>{req.date ? "-" : req.days}</td>
+                  {filter !== "half" && <td>{req.date ? "-" : req.numberOfDays}</td>}
                   <td>{req.status}</td>
                   <td>
                     {req.status === "Approved" ? (
@@ -252,6 +253,7 @@ const StudentDashboard = () => {
             )}
           </tbody>
         </table>
+        </div>
         <div className="student-pagination">
           <button
             onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}

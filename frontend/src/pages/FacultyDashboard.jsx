@@ -101,8 +101,8 @@ const FacultyDashboard = () => {
 
   return (
     <div className="faculty-dashboard">
-      <FacultyLogoutButton/>
       <h1 className="dashboard-title">Faculty Leave Dashboard</h1>
+      <FacultyLogoutButton />
 
       <section className="pending-requests">
         <h2>Pending Requests</h2>
@@ -145,6 +145,7 @@ const FacultyDashboard = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="search-input"
         />
+        <div className="table-scroll-wrapper">
         <table className="requests-table">
           <thead>
             <tr>
@@ -173,6 +174,7 @@ const FacultyDashboard = () => {
             )}
           </tbody>
         </table>
+        </div>
 
         <div className="pagination">
           <button
