@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../styles/LeaveForm.css';
 import { getUserFromToken } from "../utils/getUserFromToken";
 import { useNavigate } from "react-router-dom";
+import StudentLogoutButton from "../components/StudentLogoutButton";
 
 const HalfDayLeaveForm = () => {
   const token = sessionStorage.getItem("token");
@@ -67,6 +68,7 @@ const HalfDayLeaveForm = () => {
 
   return (
     <div className="leave-form-container">
+      <StudentLogoutButton/>
       <div className="leave-form-box">
         <h2 className="leave-form-title">HALF DAY LEAVE</h2>
         <form onSubmit={handleSubmit}>

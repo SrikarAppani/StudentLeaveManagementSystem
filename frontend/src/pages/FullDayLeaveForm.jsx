@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserFromToken } from "../utils/getUserFromToken";
+import StudentLogoutButton from "../components/StudentLogoutButton";
 import '../styles/LeaveForm.css';
 
 const FullDayLeaveForm = () => {
@@ -80,6 +81,7 @@ const FullDayLeaveForm = () => {
 
   return (
     <div className="leave-form-container">
+      <StudentLogoutButton/>
       <div className="leave-form-box">
         <h2 className="leave-form-title">FULL DAY LEAVE</h2>
         <form onSubmit={handleSubmit}>
