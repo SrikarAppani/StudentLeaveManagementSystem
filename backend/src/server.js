@@ -1,11 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const studentRoutes = require("./routes/studentRoutes.js");
-const facultyRoutes = require("./routes/facultyRoutes.js");
 const connectDB = require("./config/db.js");
 
 dotenv.config();
+
+const studentRoutes = require("./routes/studentRoutes.js");
+const facultyRoutes = require("./routes/facultyRoutes.js");
+
 connectDB();
 
 const app = express();
