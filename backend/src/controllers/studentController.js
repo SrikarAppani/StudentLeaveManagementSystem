@@ -163,7 +163,7 @@ const applyhalfdayleave = async (req, res) => {
     const student = await Student.findOne({ rollNumber: rollNumber });
 
     if (!student) {
-      res.status(404).json({ error: "Student not found." });
+      return res.status(404).json({ error: "Student not found." });
     }
 
     const classTeacher = await ClassTeacher.findOne({
@@ -173,7 +173,7 @@ const applyhalfdayleave = async (req, res) => {
     });
 
     if (!classTeacher) {
-      res.status(404).json({ error: "Teacher not found." });
+      return res.status(404).json({ error: "Teacher not found." });
     }
 
     const teacherID = classTeacher.classTeacherID;
