@@ -368,7 +368,7 @@ const deleteToken = async (facultyID, tokenToDelete) => {
 };
 
 const getGatePassURL = async (req, res) => {
-  res.status(200).json({message:"http://localhost:5000/assets/GatePass.png"});
+  res.status(200).json({message:`${process.env.SERVER}/assets/GatePass.png`});
 }
 
 module.exports = {

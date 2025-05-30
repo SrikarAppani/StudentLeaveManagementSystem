@@ -8,8 +8,8 @@ const sendPushNotification = async (token, title, body, url) => {
     },
     webpush: {
       notification: {
-        icon: "http://localhost:5000/assets/logo.png",
-        badge: "http://localhost:5000/assets/logo.png",
+        icon: `${process.env.SERVER}/assets/logo.png`,
+        badge: `${process.env.SERVER}/assets/logo.png`,
         click_action: url
       }
     },
