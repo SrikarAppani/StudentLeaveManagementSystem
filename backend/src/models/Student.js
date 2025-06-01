@@ -6,6 +6,7 @@ const StudentSchema = new mongoose.Schema(
         name: {type: String, required:true},
         password: {type: String, required:true},
         emailID: {type: String, required:true, unique: true},
+        parentPhoneNumber: {type: String, required:true, default: "7989465549"},
         deviceTokens: {type: [String], default: []},
         year: {type:Number, required:true},
         department: {type: String, required:true},

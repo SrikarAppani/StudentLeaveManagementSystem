@@ -40,6 +40,7 @@ const pendingLeaves = async (req, res) => {
       });
       const plainRequest = request.toObject();
       plainRequest.name = student?.name;
+      plainRequest.parentPhoneNumber = student?.parentPhoneNumber;
       plainRequest.leaveType = request.numberOfDays
         ? request.numberOfDays === 1
           ? "Full-Day"
