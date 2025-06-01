@@ -316,7 +316,7 @@ const sendNotification = async (tokens, studentName, emailID, facultyID) => {
       token,
       `Leave request from ${studentName}`,
       "Click to view",
-      "http://localhost:5713/faculty-login"
+      `${process.env.SERVER}/faculty`
     );
 
     if (result.success) {
@@ -333,7 +333,7 @@ const sendNotification = async (tokens, studentName, emailID, facultyID) => {
       `
       <p>${studentName} has applied for a leave.</p>
       <p>Please check and respond.</p>
-      <a href="http://localhost:5713/faculty-login"
+      <a href="${process.env.SERVER}/faculty"
           style="
               display: inline-block;
               padding: 10px 20px;

@@ -289,7 +289,7 @@ const sendNotification = async (request) => {
       token,
       `Leave Request ${request.status}`,
       "Click to view",
-      "http://localhost:5713/student-login"
+      `${process.env.SERVER}/student`
     );
 
     if (result.success) {
@@ -308,7 +308,7 @@ const sendNotification = async (request) => {
         <p>Your leave request is ${request.status}.</p>
         <p>Please check and respond.</p>
         </br>
-        <a href="http://localhost:5713/student-login"
+        <a href="${process.env.SERVER}/student"
             style="
                 display: inline-block;
                 padding: 10px 20px;
