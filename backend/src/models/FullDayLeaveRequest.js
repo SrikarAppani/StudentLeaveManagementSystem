@@ -18,6 +18,15 @@ const FullDayLeaveRequestsSchema = new mongoose.Schema(
     }
 );
 
+FullDayLeaveRequestsSchema.pre("validate", function (next) {
+    if (!this.placementFacultyID) {
+        this.placementApprovalStatus = undefined;
+    } else if (!this.placementApprovalStatus) {
+        this.placementApprovalStatus = "Pending";
+    }
+    next();
+});
+
 const FullDayLeaveRequests = mongoose.model("FullDayLeaveRequests", FullDayLeaveRequestsSchema);
 
 module.exports = FullDayLeaveRequests;

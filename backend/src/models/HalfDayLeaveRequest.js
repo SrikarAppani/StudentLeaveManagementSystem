@@ -17,6 +17,15 @@ const HalfDayLeaveRequestsSchema = new mongoose.Schema(
     }
 );
 
+HalfDayLeaveRequestsSchema.pre("validate", function (next) {
+    if (!this.placementFacultyID) {
+        this.placementApprovalStatus = undefined;
+    } else if (!this.placementApprovalStatus) {
+        this.placementApprovalStatus = "Pending";
+    }
+    next();
+});
+
 const HalfDayLeaveRequests = mongoose.model("HalfDayLeaveRequests", HalfDayLeaveRequestsSchema);
 
 module.exports = HalfDayLeaveRequests;
