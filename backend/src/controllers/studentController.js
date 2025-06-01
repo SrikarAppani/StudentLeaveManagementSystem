@@ -44,11 +44,11 @@ const requestsHistory = async (req, res) => {
     const rollNumber = req.query.rollNumber;
     const halfDayHistory = await HalfDayLeaveRequests.find({
       studentRollNumber: rollNumber,
-      status: { $in: ["Approved", "Rejected"] },
+      status: { $in: ["Approved", "Rejected", "Expired"] },
     });
     const fullDayHistory = await FullDayLeaveRequests.find({
       studentRollNumber: rollNumber,
-      status: { $in: ["Approved", "Rejected"] },
+      status: { $in: ["Approved", "Rejected", "Expired"] },
     });
 
     const requestsHistory = [

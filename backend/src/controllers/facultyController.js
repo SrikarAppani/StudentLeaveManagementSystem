@@ -60,11 +60,11 @@ const requestsHistory = async (req, res) => {
     const facultyID = req.query.facultyID;
     const halfDayHistory = await HalfDayLeaveRequests.find({
       $or: [{ facultyID: facultyID }, { placementFacultyID: facultyID }],
-      status: { $in: ["Approved", "Rejected"] },
+      status: { $in: ["Approved", "Rejected", "Expired"] },
     });
     const fullDayHistory = await FullDayLeaveRequests.find({
       $or: [{ facultyID: facultyID }, { placementFacultyID: facultyID }],
-      status: { $in: ["Approved", "Rejected"] },
+      status: { $in: ["Approved", "Rejected", "Expired"] },
     });
 
     const requestsHistory = [

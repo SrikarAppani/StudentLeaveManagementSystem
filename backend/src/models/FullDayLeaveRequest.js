@@ -14,7 +14,7 @@ const FullDayLeaveRequestsSchema = new mongoose.Schema(
         facultyApprovalStatus: {type:String, enum:['Pending', 'Approved', 'Rejected'], default:"Pending"},
         placementApprovalStatus: {type:String, enum:['Pending', 'Approved', 'Rejected'], default:"Pending"},
 
-        status: {type: String, enum:['Pending', 'Partially Approved', 'Approved', 'Rejected'], default:"Pending"}
+        status: {type: String, enum:['Pending', 'Partially Approved', 'Approved', 'Rejected', 'Expired'], default:"Pending"}
     }
 );
 
