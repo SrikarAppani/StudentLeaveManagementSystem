@@ -267,7 +267,7 @@ const applyfulldayleave = async (req, res) => {
     if (student.isEnrolledInPlacementTraining) {
       const placementFacultyID = (
         await DeptHOD.findOne({
-          department: "Placemnet",
+          department: "Placement",
         })
       ).facultyID;
 
