@@ -82,7 +82,7 @@ const FacultyRequestViewPage = () => {
     if (canCall) {
       window.location.href = `tel:${phoneNumber}`;
     } else {
-      alert("This device doesn't support phone calls.");
+      alert(`This device doesn't support phone calls.\nPhone Number: ${phoneNumber}`);
     }
   }
 

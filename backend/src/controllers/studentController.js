@@ -269,7 +269,7 @@ const applyfulldayleave = async (req, res) => {
         await DeptHOD.findOne({
           department: "Placemnet",
         })
-      ).hodID;
+      ).facultyID;
 
       const newFullDayRequest = new FullDayLeaveRequests({
         numberOfDays: req.body.numberOfDays,
